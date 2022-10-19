@@ -1,2 +1,2 @@
-# DesignPatterns-Individual-
+# DesignPatterns
 Design Patterns Individual Assignment 
