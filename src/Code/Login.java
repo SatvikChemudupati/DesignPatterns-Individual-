@@ -1,15 +1,17 @@
 import java.util.*;
 import java.io.*;
 
-public class Login{
+public class Login{		//Creates the login options with writing the username and password into the database in Facade design pattern
 
     private String username;
 
     private String password, y;
 
+	private String path = System.getProperty("user.dir");
+
 	char c;
 
-    public boolean login( int userType) {
+    public String login( int userType) {
 		System.out.println("Enter Username ");
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
@@ -18,13 +20,16 @@ public class Login{
 		password = scan.next();
 		boolean success = false;
         if(userType == 0) {
-			success = validation("C:\\Users\\vbodavul\\Documents\\Assignments-515\\DesignPatterns\\DesignPatterns\\BuyerInfo.txt");
+			success = validation(path + "\\BuyerInfo.txt");
 		}
 		
 		else {
-			success = validation("C:\\Users\\vbodavul\\Documents\\Assignments-515\\DesignPatterns\\DesignPatterns\\SellerInfo.txt");
+			success = validation(path + "\\SellerInfo.txt");
 		}
-		return success;
+		if(success)
+			return username;
+		else
+			return null;
 	}
 
     public boolean validation(String str) {
@@ -41,7 +46,6 @@ public class Login{
 			}
 		} catch (FileNotFoundException f) {
 			System.out.println("Error finding the user");
-			f.printStackTrace();
 		}
 		return false;
 	}

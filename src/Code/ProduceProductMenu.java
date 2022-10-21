@@ -1,4 +1,4 @@
-public class ProduceProductMenu implements ProductMenu {
+public class ProduceProductMenu implements ProductMenu {	// Implements the Produce Product Menu class of the Bridge design pattern
 
 	@Override
 	public void showMenu() {

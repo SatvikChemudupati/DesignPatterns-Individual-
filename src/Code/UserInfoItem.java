@@ -1,48 +1,54 @@
 import java.util.*;
-import java.util.Map.Entry;
+import java.io.*;
 
-public class UserInfoItem {
+public class UserInfoItem {   // Implements the class that displayes the info of the items of the user or add new items.
 
-    HashMap<String,String> userProducts = new HashMap<>();
+    private String path = System.getProperty("user.dir");
 
-    UserInfoItem(){
-        userProducts.put("Beef","tutu");
-        userProducts.put("Tomato","tutu");
-        userProducts.put("Beef","mimi");
-        userProducts.put("Onion","mimi");
-        userProducts.put("Beef","pepe");
-        userProducts.put("Tomato","pepe");
-        userProducts.put("Onion","pepe");
-    }
+	private String str = path + "\\UserProduct.txt";
+
+    Scanner sc;
+    String y;
+    char c;
+
+    
     public void createUSer() {
 		System.out.println(" User Created ....");
 	}
 
-    public void getUserProducts(String username, int userType){
-        if(username.equalsIgnoreCase("tutu") && (userType == 0)){
-            System.out.println("Buyer Tutu has the following products ");
-            for (Entry<String, String> entry : userProducts.entrySet()) {
-                if(entry.getValue() == "tutu"){
-                    System.out.println(entry.getKey());
-                }
-            }
-        }
-        if(username.equalsIgnoreCase("mimi") && (userType == 0)){
-            System.out.println("Buyer Mimi has the following products ");
-            for (Entry<String, String> entry : userProducts.entrySet()) {
-                if(entry.getValue() == "mimi"){
-                    System.out.println(entry.getKey());
-                }
-            }
-        }
-        if(username.equalsIgnoreCase("pepe") && (userType == 1)){
-            System.out.println("Seller Pepe has the following products ");
-            for (Entry<String, String> entry : userProducts.entrySet()) {
-                if(entry.getValue() == "pepe"){
-                    System.out.println(entry.getKey());
-                }
-            }
-        }
+    public void getUserProducts(String username){
+		try {
+			sc = new Scanner(new File(str));
+			while (sc.hasNextLine()) {
+				y=y+c;
+				String st[]= sc.next().split(":");
+				
+				if(st[0].equals(username)) {
+					System.out.println(st[1]);
+				}
+				if(sc.nextLine() == null)
+					break;
+			}
+		} catch (FileNotFoundException f) {
+			System.out.println("Error finding the Meat Product menu");
+		}
     }
 
-}
+    public void addUserProducts(String username, String Productcat){
+
+        try{
+            FileWriter fw =new FileWriter(str, true);
+            fw.write(username);
+            fw.write(":");
+            fw.write(Productcat);
+            fw.write("\n");
+            fw.close();
+            }
+            catch(IOException e)
+            {
+                System.out.println("File not found");
+            }  
+    }
+        
+    }
+

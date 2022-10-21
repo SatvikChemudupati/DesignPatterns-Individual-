@@ -1,4 +1,4 @@
-public interface ProductMenu {
+public interface ProductMenu {		// Implements the Product Menu of the Factory Method.
 
 	//private Person person;
 

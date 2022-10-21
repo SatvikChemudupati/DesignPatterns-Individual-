@@ -1,4 +1,5 @@
-public class Buyer extends Person {
+public class Buyer extends Person {  	//Implements the Buyer class extending the Person in the factory design pattern
+
 
 	Buyer() {
 		super(productMenu);
@@ -11,7 +12,7 @@ public class Buyer extends Person {
 
 	@Override
 	public void showMenu() {
-		System.out.println("Buyer Menu items....");
+		System.out.println("Buyer Menu items....");	//Shows the menu items of the buyer
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 
-public class PersonFactory extends Person {
+public class PersonFactory extends Person {		// Implements the person factory class that externds the abstract person class.
 
 	PersonFactory(ProductMenu productMenu) {
 		super(productMenu);

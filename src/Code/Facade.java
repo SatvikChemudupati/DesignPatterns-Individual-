@@ -1,44 +1,34 @@
-import java.util.Iterator;
+
 import java.util.Scanner;
 
-public class Facade {
+public class Facade {		//The facade class diagram is implemented with connecting multiple classes including Login and Registration
 
 	private int userType;
 
 	private Product productList;
 
-	private OfferingList offeringList;
-
 	private int selectedProduct;
-
-	private int nProductCategory;
-
-	private ClassProductList theProductList;
-
-	private Person thePerson;
 
 	private int menuType;
 
-	private String username;
-
-	private String password;
-
 	private Login login = new Login();
 
-	private boolean success;
+	private String success;
 
 	private int option;
+
+	private UserInfoItem userInfo = new UserInfoItem();
 
 	private Register register = new Register();
 
 
-	public void startFacade() {
+	public void startFacade() {			// This function initiates the program
 		Scanner sc = new Scanner(System.in);
 		System.out.println("---HELLO!!---");
 		System.out.println("Enter 0 to Login");
 		System.out.println("Enter 1 to Register");
 		option = sc.nextInt();
-		if(option == 0)
+		if(option == 0)					// The Login information is displayed and the input is verified
 		{
 			System.out.println("----------Facade Pattern has been Implemented---------");
 			System.out.println("---LOGIN---");
@@ -50,13 +40,13 @@ public class Facade {
 				sc.close();
 			}
 			success = login.login(userType);
-			if(success == false)
+			if(success == null)
 			{
 				System.out.println("Invalid credentials");
 				sc.close();
 			}
 		}
-		if(option == 1)
+		if(option == 1)				// The registration information is displayed and the input is stored
 		{
 			System.out.println("----------Facade Pattern has been Implemented---------");
 			System.out.println("---REGISTER---");
@@ -64,8 +54,8 @@ public class Facade {
 			System.out.println("Enter 1 for Seller");
 			userType = sc.nextInt();
 			try{
-				register.Registration(userType);
-			}
+				register.Registration(userType);			// The user option is passed as an argument for registration in the register class
+			}	
 			catch(Exception e){
 				System.out.println("Unable to register at this moment, please try again");
 				sc.close();
@@ -73,7 +63,7 @@ public class Facade {
 		}
 		
 		System.out.println("Select an option(Number) from available Product Menu \n 1. Meat Product Menu \n 2. Produce Product Menu ");
-		selectedProduct = sc.nextInt();
+		selectedProduct = sc.nextInt();			// The user option is selected for creating a meat or produce product menu options
 		if (selectedProduct == 1) {
 			SelectProduct(new MeatProductMenu(), userType);
 		} else if (selectedProduct == 2) {
@@ -82,28 +72,41 @@ public class Facade {
 		} else {
 			System.out.println("Wrong Selection");
 			System.exit(-1);
-		}
-		System.out.println("Implementing Visitor Pattern....");
+		}	
+		System.out.println("Implementing Visitor Pattern....");			// Implementing the Visitor pattern function
 		remind(menuType);
-		System.out.println("Implementing Iterator pattern ....");
-		if(menuType == 1)
-			productList = new Product(new ProduceProductMenu());
-		else
-			productList = new Product(new MeatProductMenu());
-		@SuppressWarnings("rawtypes")
-		Iterator iterate = (Iterator) productList.createIterator();
-		ProductIterator productIterator = new ProductIterator();
-		if(menuType == 1)
-			offeringList = new OfferingList(new ProduceProductMenu());
-		else
-		offeringList = new OfferingList(new MeatProductMenu());
-		@SuppressWarnings("rawtypes")
-		Iterator iterate2 = (Iterator) offeringList.createIterator();
-		OfferingIterator oi = new OfferingIterator();
-		while (productIterator.hasNext(iterate)) {
-			System.out.println(productIterator.Next(iterate));
-			System.out.println(oi.Next(iterate2));
+		System.out.println("Implementing Iterator pattern ....");		// Implementing the Visitor pattern function
+		if(menuType == 1){
+			try{
+				productList = new Product(new ProduceProductMenu());
+			}
+			catch(Exception e){
+				System.out.println("");
+			}
 		}
+		
+		else{
+			try{
+				productList = new Product(new MeatProductMenu());
+			}
+			catch(Exception e){
+				System.out.println("");
+			}
+		}
+		
+		System.out.println("Obtaining elements from Current user......");
+		userInfo.getUserProducts(success);
+		int opinio;
+		System.out.print("Want to add items (1/0)");
+		opinio = sc.nextInt();
+		if(opinio == 1)
+		{
+			System.out.println("Enter Product Name");
+			String name = sc.next();
+			userInfo.addUserProducts(success, name);
+		}
+		System.out.println("Obtaining elements from Current user......");
+		userInfo.getUserProducts(success);
 		sc.close();
 		
 	}

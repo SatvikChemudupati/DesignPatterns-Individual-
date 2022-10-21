@@ -1,8 +1,4 @@
-public class ReminderVisitor extends NodeVisitor {
-
-	private Reminder m_Reminder;
-
-	private ClassProductList classProductList;
+public class ReminderVisitor extends NodeVisitor {	//Implements the Visitor design pattern extending the Node Visitor class.
 
 	public Reminder visitProduct(Product product) {
 		System.out.println("visiting Product ....");

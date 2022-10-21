@@ -1,8 +1,7 @@
 import java.util.Iterator;
 
-public class ProductIterator extends ListIterator {
+public class ProductIterator extends ListIterator {		// Implements the Product Iterator class of the Iterator design pattern
 
-	private ClassProductList classProductList;
 
 	@SuppressWarnings("rawtypes")
 	public boolean hasNext(Iterator iterator) {

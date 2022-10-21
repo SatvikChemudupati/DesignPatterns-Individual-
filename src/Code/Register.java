@@ -1,10 +1,8 @@
 import java.util.*;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Register{
+public class Register{           // Implements the Register class called in the Facade class for new user registration
 
     private String username;
 

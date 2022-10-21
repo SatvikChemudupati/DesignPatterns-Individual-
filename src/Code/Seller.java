@@ -1,4 +1,4 @@
-public class Seller extends Person {
+public class Seller extends Person { 	// Implements the Seller class extending the Person Class of the Factory Method.
 
 	Seller() {
 		super(productMenu);

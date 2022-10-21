@@ -1,8 +1,4 @@
-public class Trading extends Reminder {
-
-	private Product product;
-
-	private OfferingList offeringList;
+public class Trading extends Reminder {	// Implements the Trading Class extending the Reminder Class in Visitor Design Diagram
 	
 	public Reminder accept(NodeVisitor nodeVisitor) {
 		System.out.println("Assignment Reminder ...");
