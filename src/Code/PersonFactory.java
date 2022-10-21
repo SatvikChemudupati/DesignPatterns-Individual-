@@ -16,7 +16,7 @@ public class PersonFactory extends Person {		// Implements the person factory cl
 
 	public static Person createObject(String str) {
 		Person person;
-		System.out.println("Factory Pattern Intiated for user creation....");
+		System.out.println("Factory Pattern Intiated for user creation are....");
 		if (str.equalsIgnoreCase("Buyer")) {
 			person = new Buyer();
 		} else{

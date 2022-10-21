@@ -12,11 +12,11 @@ public class Login{		//Creates the login options with writing the username and p
 	char c;
 
     public String login( int userType) {
-		System.out.println("Enter Username ");
+		System.out.println("Enter the Username ");
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		username = scan.next();
-		System.out.println("Enter Password ");
+		System.out.println("Enter the Password ");
 		password = scan.next();
 		boolean success = false;
         if(userType == 0) {

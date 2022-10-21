@@ -17,7 +17,7 @@ public class Product extends Reminder{		// Implements the iterator pattern diagr
 	ArrayList<String> prod = new ArrayList<>();
 
 	Product(MeatProductMenu m){
-		System.out.println("Elements in meat product menu is/are");
+		System.out.println("Elements in meat product menu are");
 		try {
 			sc = new Scanner(new File(str));
 			while (sc.hasNextLine()) {

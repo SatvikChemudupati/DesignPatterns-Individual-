@@ -24,7 +24,7 @@ public class Facade {		//The facade class diagram is implemented with connecting
 
 	public void startFacade() {			// This function initiates the program
 		Scanner sc = new Scanner(System.in);
-		System.out.println("---HELLO!!---");
+		System.out.println("---WELCOME!!---");
 		System.out.println("Enter 0 to Login");
 		System.out.println("Enter 1 to Register");
 		option = sc.nextInt();
@@ -57,12 +57,12 @@ public class Facade {		//The facade class diagram is implemented with connecting
 				register.Registration(userType);			// The user option is passed as an argument for registration in the register class
 			}	
 			catch(Exception e){
-				System.out.println("Unable to register at this moment, please try again");
+				System.out.println("Unable to register at this moment");
 				sc.close();
 			}
 		}
 		
-		System.out.println("Select an option(Number) from available Product Menu \n 1. Meat Product Menu \n 2. Produce Product Menu ");
+		System.out.println("Select an option(Number) from Product Menu \n 1. Meat Product Menu \n 2. Produce Product Menu ");
 		selectedProduct = sc.nextInt();			// The user option is selected for creating a meat or produce product menu options
 		if (selectedProduct == 1) {
 			SelectProduct(new MeatProductMenu(), userType);
@@ -73,9 +73,9 @@ public class Facade {		//The facade class diagram is implemented with connecting
 			System.out.println("Wrong Selection");
 			System.exit(-1);
 		}	
-		System.out.println("Implementing Visitor Pattern....");			// Implementing the Visitor pattern function
+		System.out.println("Implementing the Visitor Pattern....");			// Implementing the Visitor pattern function
 		remind(menuType);
-		System.out.println("Implementing Iterator pattern ....");		// Implementing the Visitor pattern function
+		System.out.println("Implementing the Iterator pattern ....");		// Implementing the Visitor pattern function
 		if(menuType == 1){
 			try{
 				productList = new Product(new ProduceProductMenu());
@@ -94,7 +94,7 @@ public class Facade {		//The facade class diagram is implemented with connecting
 			}
 		}
 		
-		System.out.println("Obtaining elements from Current user......");
+		System.out.println("Obtaining elements from Present user......");
 		userInfo.getUserProducts(success);
 		int opinio;
 		System.out.print("Want to add items (1/0)");
@@ -105,7 +105,7 @@ public class Facade {		//The facade class diagram is implemented with connecting
 			String name = sc.next();
 			userInfo.addUserProducts(success, name);
 		}
-		System.out.println("Obtaining elements from Current user......");
+		System.out.println("Obtaining elements from Present user......");
 		userInfo.getUserProducts(success);
 		sc.close();
 		

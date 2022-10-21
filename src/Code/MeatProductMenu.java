@@ -31,20 +31,20 @@ public class MeatProductMenu implements ProductMenu {		// Implements the Meat pr
 	}
 
 	public void createProductList() {
-		System.out.println("Product List created ...");
+		System.out.println("Product List created here ...");
 	}
 
 	public void AttachProductToUser() {
-		System.out.println("User Attached .... ");
+		System.out.println("User Attached here.... ");
 	}
 
 	public void productOperation() {
-		System.out.println("Operation performed on the Product...");
+		System.out.println("Operation performed on the Product here...");
 	}
 
 
 	public void SelectProduct(int UserType) {
-		System.out.println("Meat Product Menu Selected ...\n Bridge Pattern for connection used");
+		System.out.println("Meat Product Menu Selected here...\n Bridge Pattern for connection used here");
 		Person person;
 		if (UserType == 0) {
 			person = PersonFactory.createObject("Buyer");
